@@ -10,6 +10,16 @@ module.exports = {
     publicPath: "",
   },
   mode: "development",
+  devServer: {
+    port: 9000,
+    static: {
+      directory: path.resolve(__dirname, "./dist"),
+    },
+    devMiddleware: {
+      index: "index.html",
+      writeToDisk: true,
+    },
+  },
   module: {
     rules: [
       {
@@ -51,12 +61,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [
-        "**/*",
-        path.join(process.cwd(), "build/**/*"),
-      ],
-    }),
+    new CleanWebpackPlugin({}),
     new HtmlWebpackPlugin({
       title: "Hello World",
       template: "src/index.hbs",
