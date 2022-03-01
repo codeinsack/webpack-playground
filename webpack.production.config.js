@@ -65,9 +65,18 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
+      filename: "hello-world.html",
+      chunks: ["hello-world"],
       title: "Hello World",
-      template: "src/index.hbs",
-      description: "Some description is here...",
+      template: "src/page-template.hbs",
+      description: "Hello World",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "girl.html",
+      chunks: ["girl"],
+      title: "Girl",
+      template: "src/page-template.hbs",
+      description: "Girl",
     }),
   ],
 };
