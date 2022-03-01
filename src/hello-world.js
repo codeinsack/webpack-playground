@@ -1,9 +1,10 @@
 import Button from "./components/button/button";
 import Heading from "./components/heading/heading";
+import _ from "lodash";
 
 const heading = new Heading();
 const button = new Button();
-heading.render();
+heading.render(_.upperFirst("hello world"));
 button.render();
 
 if (process.env.NODE_ENV === "production") {
