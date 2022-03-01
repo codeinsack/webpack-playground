@@ -1,4 +1,4 @@
-import Girl from "./girl.jpg";
+import Girl from "./components/image/girl.jpg";
 import altText from "./altText.txt";
 
 function addImage() {
