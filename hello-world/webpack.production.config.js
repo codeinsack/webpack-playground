@@ -4,10 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: {
-    "hello-world": "./src/hello-world.js",
-    girl: "./src/girl.js",
-  },
+  entry: "./src/hello-world.js",
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "./dist"),
@@ -22,23 +19,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(png|jpg)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 5 * 1024,
-          },
-        },
-      },
-      {
-        test: /\.txt/,
-        type: "asset/source",
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
@@ -72,17 +52,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "hello-world.html",
-      chunks: ["hello-world"],
       title: "Hello World",
       template: "src/page-template.hbs",
       description: "Hello World",
-    }),
-    new HtmlWebpackPlugin({
-      filename: "girl.html",
-      chunks: ["girl"],
-      title: "Girl",
-      template: "src/page-template.hbs",
-      description: "Girl",
     }),
   ],
 };
